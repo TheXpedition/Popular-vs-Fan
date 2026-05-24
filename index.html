@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>The Xpedition - Campria</title>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg-dark: #1e1814;
+    --card-orange: #FFB573;
+    --accent-red: #DF3619;
+    --dark-red: #BA1F1A;
+    --text-light: #fff5eb;
+    --text-dark: #2c1a0d;
+    --divider-color: #4a3b32;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  
+  body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--bg-dark);
+    color: var(--text-light);
+    line-height: 1.5;
+    padding-bottom: 50px;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+
+  /* ====== HERO SECTION ====== */
+  .hero {
+    display: flex;
+    gap: 20px;
+    margin-top: 20px;
+    margin-bottom: 40px;
+    align-items: stretch;
+  }
+  
+  @media (max-width: 900px) {
+    .hero { flex-direction: column; }
+  }
+
+  .logo-zone {
+    flex: 1;
+    border-radius: 12px;
+    border: 2px solid #3d2f26;
+    overflow: hidden;
+    display: flex;
+  }
+
+  .logo-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .info-card {
+    flex: 1.2;
+    background: var(--card-orange);
+    border-radius: 12px;
+    padding: 30px;
+    color: var(--text-dark);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.4);
+  }
+
+  .info-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    border-bottom: 2px solid rgba(44, 26, 13, 0.15);
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+  }
+
+  .info-title-area {
+    flex: 1;
+  }
+
+  .badge-season {
+    background: var(--text-dark);
+    color: var(--card-orange);
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-weight: 800;
+    font-size: 14px;
+    display: inline-block;
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+  }
+
+  .season-title {
+    font-family: 'Oswald', sans-serif;
+    font-size: 64px;
+    line-height: 1;
+    text-transform: uppercase;
+    color: var(--text-dark);
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+
+  .season-desc {
+    font-size: 14px;
+    font-weight: 600;
+    color: #4a2f1d;
+    max-width: 90%;
+    margin-top: 15px;
+  }
+
+  .info-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+
+  .stat-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .stat-icon {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    border: 2px solid var(--text-dark);
+    font-size: 14px;
+  }
+
+  .stat-text h4 {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin: 0 0 2px 0;
+    color: #5c3b24;
+  }
+
+  .stat-text p {
+    font-size: 15px;
+    font-weight: 700;
+    margin: 0;
+    color: var(--text-dark);
+  }
+
+  /* ====== SECTION DIVIDER ====== */
+  .section-divider {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin: 40px 0 25px 0;
+  }
+
+  .divider-icon {
+    color: var(--card-orange);
+  }
+
+  .section-title {
+    font-family: 'Oswald', sans-serif;
+    font-size: 24px;
+    letter-spacing: 2px;
+    color: var(--card-orange);
+    text-transform: uppercase;
+    margin: 0;
+  }
+
+  .divider-line {
+    flex: 1;
+    height: 2px;
+    background: var(--divider-color);
+    position: relative;
+  }
+  .divider-line::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: -2px;
+    width: 6px;
+    height: 6px;
+    background: var(--card-orange);
+    transform: rotate(45deg);
+  }
+
+  /* ====== GRID ====== */
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 15px;
+  }
+
+  @media (max-width: 1024px) {
+    .grid { grid-template-columns: repeat(4, 1fr); }
+  }
+  @media (max-width: 800px) {
+    .grid { grid-template-columns: repeat(3, 1fr); }
+  }
+  @media (max-width: 500px) {
+    .grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  .card {
+    background: var(--card-orange);
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.5);
+  }
+
+  .card-top {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    background: linear-gradient(180deg, rgba(255,255,255,0.2) 0%, transparent 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .char-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .card-bottom {
+    background: #ffffff;
+    padding: 12px 8px;
+    text-align: center;
+    border-top: 2px solid rgba(0,0,0,0.05);
+  }
+
+  .char-name {
+    color: var(--text-dark);
+    font-family: 'Oswald', sans-serif;
+    font-size: 18px;
+    text-transform: uppercase;
+    margin: 0;
+    line-height: 1.1;
+  }
+
+  .char-place {
+    color: var(--dark-red);
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-top: 4px;
+    letter-spacing: 0.5px;
+  }
+
+  /* ====== TRACK RECORD ====== */
+  /* MODIFICADO: Se removieron los bordes, padding y background para dejar la imagen limpia */
+  .track-record-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+  }
+
+  .track-record-container img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+  }
+
+</style>
+</head>
+<body>
+
+<div class="container">
+  
+  <!-- HERO SECTION -->
+  <header class="hero">
+    <div class="logo-zone">
+      <img src="personajes/logo.png" alt="Logo The Xpedition" class="logo-img" id="mainLogo">
+    </div>
+    
+    <div class="info-card">
+      <div class="info-header">
+        <div class="info-title-area">
+          <div class="badge-season">TEMPORADA 02</div>
+          <h1 class="season-title">CAMPRIA <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3 6 7 1-5 5 1 7-6-3-6 3 1-7-5-5 7-1z"></path></svg></h1>
+          <p class="season-desc">La segunda entrega de Campria fue una guerra entre nombres "populares" de la comunidad Drama Total Latina y otros nombres no tan populares pero con el mismo nivel competitivo, principalmente basada en The Amazing Race y en su mayoría retos contrareloj.</p>
+        </div>
+      </div>
+      
+      <div class="info-stats">
+        <div class="stat-item">
+          <div class="stat-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+          </div>
+          <div class="stat-text">
+            <h4>Estreno</h4>
+            <p>29 de Enero, 2016</p>
+          </div>
+        </div>
+        
+        <div class="stat-item">
+          <div class="stat-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+          </div>
+          <div class="stat-text">
+            <h4>Duración</h4>
+            <p>30 Días</p>
+          </div>
+        </div>
+        
+        <div class="stat-item">
+          <div class="stat-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+          </div>
+          <div class="stat-text">
+            <h4>Participantes</h4>
+            <p>18 Concursantes</p>
+          </div>
+        </div>
+        
+        <div class="stat-item">
+          <div class="stat-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 21h8"></path><path d="M12 17v4"></path><path d="M7 4h10v6a5 5 0 0 1-10 0V4z"></path></svg>
+          </div>
+          <div class="stat-text">
+            <h4>Ganador</h4>
+            <p>Luis Pivovarov</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- PROTAGONISTAS -->
+  <div class="section-divider">
+    <div class="divider-icon">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon></svg>
+    </div>
+    <h2 class="section-title">PROTAGONISTAS</h2>
+    <div class="divider-line"></div>
+  </div>
+
+  <div class="grid" id="protagonistas-grid">
+    <!-- Generado por JS -->
+  </div>
+
+  <!-- TRACK RECORD -->
+  <div class="section-divider">
+    <div class="divider-icon">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
+    </div>
+    <h2 class="section-title">TRACK RECORD</h2>
+    <div class="divider-line"></div>
+  </div>
+
+  <div class="track-record-container">
+    <img src="personajes/track.png" alt="Track Record de la Temporada">
+  </div>
+
+</div>
+
+<script>
+  const participantes = [
+    { name: 'Luis', place: 'Winner' },
+    { name: 'Damián', place: 'Runner up' },
+    { name: 'Atneimip', place: '3rd Place' },
+    { name: 'Mati', place: '4th Place' },
+    { name: 'Ivy', place: '5th Place' },
+    { name: 'Javi', place: '6th Place' },
+    { name: 'Stephany', place: '7th Place' },
+    { name: 'Pilar', place: '8th Place' },
+    { name: 'Solf', place: '9th Place' },
+    { name: 'Nahuee', place: '11th Place' }
+  ];
+
+  function formatFileName(name) {
+    return name.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().replace(/\s+/g, '') + '.png';
+  }
+
+  const grid = document.getElementById('protagonistas-grid');
+
+  participantes.forEach((p) => {
+    const fileName = formatFileName(p.name);
+    const card = document.createElement('div');
+    card.className = 'card';
+    
+    card.innerHTML = `
+      <div class="card-top">
+        <img src="personajes/${fileName}" alt="${p.name}" class="char-img">
+      </div>
+      <div class="card-bottom">
+        <h3 class="char-name">${p.name}</h3>
+        <div class="char-place">${p.place}</div>
+      </div>
+    `;
+    
+    grid.appendChild(card);
+  });
+</script>
+
+</body>
+</html>
